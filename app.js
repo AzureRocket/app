@@ -1,15 +1,7 @@
-var express = require('express')
-var app = express()
+var http = require('http')
+var port = process.env.PORT || 1337;
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
-
-var server = app.listen(80, function () {
-
-  var host = server.address().address
-  var port = server.address().port
-
-  console.log('Example app listening at http://%s:%s', host, port)
-
-})
+http.createServer(function(reu, res){
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(port);
